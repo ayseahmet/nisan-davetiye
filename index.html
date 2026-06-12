@@ -4,9 +4,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nişan Davetiyesi</title>
+
+<title>Ayşe & Ahmet Nişan Davetiyesi</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -18,21 +20,21 @@ html,body{
     height:100%;
     overflow:hidden;
     background:#f5f2eb;
+    font-family:'Segoe UI',sans-serif;
 }
 
-/* Arka plan bulanık video */
+/* Bulanık arka plan */
 .bg-video{
     position:fixed;
     inset:0;
     z-index:1;
-    overflow:hidden;
 }
 
 .bg-video video{
     width:100%;
     height:100%;
     object-fit:cover;
-    filter:blur(40px) brightness(0.7);
+    filter:blur(40px) brightness(.70);
     transform:scale(1.25);
 }
 
@@ -41,6 +43,7 @@ html,body{
     position:fixed;
     inset:0;
     z-index:2;
+
     display:flex;
     justify-content:center;
     align-items:center;
@@ -53,55 +56,98 @@ html,body{
     object-fit:contain;
 }
 
-/* Konum butonu */
-.location-btn{
+/* Bilgi kartı */
+.info-card{
     position:fixed;
-    right:25px;
+    left:50%;
     bottom:25px;
-    z-index:50;
-}
+    transform:translateX(-50%);
 
-.location-btn a{
+    z-index:100;
+
     display:flex;
     align-items:center;
-    gap:8px;
 
-    text-decoration:none;
-    color:#ffffff;
+    background:rgba(255,255,255,.18);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
 
-    background:rgba(255,255,255,0.18);
-    border:1px solid rgba(255,255,255,0.45);
-    backdrop-filter:blur(14px);
-    -webkit-backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,.35);
 
-    padding:13px 22px;
-    border-radius:50px;
+    border-radius:22px;
 
-    font-family:Arial,sans-serif;
-    font-size:15px;
-    font-weight:600;
+    padding:18px 28px;
 
-    box-shadow:0 8px 25px rgba(0,0,0,0.18);
+    box-shadow:0 8px 25px rgba(0,0,0,.12);
 }
+
+.info-item{
+    min-width:140px;
+    text-align:center;
+}
+
+.icon{
+    font-size:26px;
+    margin-bottom:8px;
+}
+
+.title{
+    font-size:12px;
+    letter-spacing:2px;
+    color:#546454;
+    margin-bottom:8px;
+}
+
+.value{
+    font-size:16px;
+    color:#2f2f2f;
+    line-height:1.5;
+}
+
+.divider{
+    width:1px;
+    height:90px;
+    background:rgba(0,0,0,.15);
+    margin:0 18px;
+}
+
+.location-link{
+    text-decoration:none;
+    color:inherit;
+}
+
 /* Mobil */
 @media(max-width:768px){
 
-    .main-video video{
-        width:100%;
-        height:auto;
-        max-height:100vh;
-    }
-
-    .location-btn{
-        right:15px;
-        bottom:15px;
-    }
-
-    .location-btn a{
-        font-size:13px;
-        padding:12px 18px;
-    }
+.info-card{
+    width:94%;
+    padding:14px;
 }
+
+.info-item{
+    min-width:auto;
+    flex:1;
+}
+
+.divider{
+    margin:0 10px;
+    height:70px;
+}
+
+.icon{
+    font-size:20px;
+}
+
+.title{
+    font-size:10px;
+}
+
+.value{
+    font-size:12px;
+}
+
+}
+
 </style>
 
 </head>
@@ -124,12 +170,42 @@ html,body{
     </video>
 </div>
 
-<!-- Konum -->
+<!-- Alt Bilgi Kartı -->
 
-<div class="location-btn">
-    <a href="https://maps.google.com/?q=Fly+Garden" target="_blank">
-        📍 Fly Garden
-    </a>
+<div class="info-card">
+
+```
+<div class="info-item">
+    <div class="icon">📅</div>
+    <div class="title">TARİH</div>
+    <div class="value">3 Temmuz 2026</div>
+    <div class="value">Cuma</div>
+</div>
+
+<div class="divider"></div>
+
+<div class="info-item">
+    <div class="icon">🕒</div>
+    <div class="title">SAAT</div>
+    <div class="value">19:30</div>
+</div>
+
+<div class="divider"></div>
+
+<a class="location-link"
+   href="https://maps.google.com/?q=Fly+Garden"
+   target="_blank">
+
+    <div class="info-item">
+        <div class="icon">📍</div>
+        <div class="title">MEKAN</div>
+        <div class="value">Fly Garden</div>
+        <div class="value">Yeşilköy</div>
+    </div>
+
+</a>
+```
+
 </div>
 
 </body>
