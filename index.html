@@ -59,9 +59,10 @@ html,body{
     left:50%;
     bottom:150px;
     transform:translateX(-50%);
-    z-index:50;
+    z-index:60;
 
     width:70%;
+    padding:12px 10px;
 
     background:rgba(255,255,255,.28);
     backdrop-filter:blur(10px);
@@ -70,11 +71,21 @@ html,body{
     border:1px solid rgba(255,255,255,.25);
     border-radius:4px;
 
-    padding:12px 10px;
-
     text-align:center;
     color:#1f1f1f;
-}/* ALT BİLGİ KARTI */
+}
+
+.count-title{
+    font-size:12px;
+    letter-spacing:2px;
+    margin-bottom:6px;
+}
+
+#timer{
+    font-size:16px;
+    font-weight:bold;
+}
+
 .info-card{
     position:absolute;
     left:50%;
@@ -95,13 +106,6 @@ html,body{
 
     border:1px solid rgba(255,255,255,.25);
     border-radius:4px;
-}
-
-    .countdown{
-    background:rgba(255,255,255,.28);
-    backdrop-filter:blur(10px);
-    -webkit-backdrop-filter:blur(10px);
-    border:1px solid rgba(255,255,255,.25);
 }
 
 .info-item{
@@ -138,9 +142,7 @@ html,body{
     color:inherit;
 }
 
-/* MOBİL */
 @media(max-width:768px){
-
     .video-wrap{
         width:100vw;
         height:auto;
@@ -150,6 +152,20 @@ html,body{
         width:100vw;
         height:auto;
         max-height:100vh;
+    }
+
+    .countdown{
+        width:72%;
+        bottom:128px;
+        padding:8px 6px;
+    }
+
+    .count-title{
+        font-size:9px;
+    }
+
+    #timer{
+        font-size:11px;
     }
 
     .info-card{
@@ -195,6 +211,11 @@ html,body{
             <source src="nisan.mp4" type="video/mp4">
         </video>
 
+        <div class="countdown">
+            <div class="count-title">NİŞANIMIZA KALAN SÜRE</div>
+            <div id="timer">Yükleniyor...</div>
+        </div>
+
         <div class="info-card">
 
             <div class="info-item">
@@ -230,6 +251,32 @@ html,body{
 
 <script>
 lucide.createIcons();
+
+const targetDate = new Date("2026-07-03T19:30:00").getTime();
+
+function updateCountdown(){
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    if(distance < 0){
+        document.getElementById("timer").innerHTML = "Bugün bizim günümüz";
+        return;
+    }
+
+    const days = Math.floor(distance / (1000*60*60*24));
+    const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+    const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+    const seconds = Math.floor((distance % (1000*60)) / 1000);
+
+    document.getElementById("timer").innerHTML =
+        days + " Gün • " +
+        hours + " Saat • " +
+        minutes + " Dk • " +
+        seconds + " Sn";
+}
+
+updateCountdown();
+setInterval(updateCountdown,1000);
 </script>
 
 </body>
