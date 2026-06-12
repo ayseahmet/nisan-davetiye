@@ -54,16 +54,14 @@ html,body{
     object-fit:contain;
 }
 
-/* GERİ SAYIM */
-.countdown{
+.info-panel{
     position:absolute;
     left:50%;
-    bottom:145px;
+    bottom:18px;
     transform:translateX(-50%);
     z-index:60;
 
     width:70%;
-    padding:10px 8px;
 
     background:rgba(255,255,255,.28);
     backdrop-filter:blur(10px);
@@ -72,8 +70,14 @@ html,body{
     border:1px solid rgba(255,255,255,.25);
     border-radius:4px;
 
+    overflow:hidden;
+}
+
+.countdown{
     text-align:center;
     color:#1f1f1f;
+    padding:10px 8px 8px;
+    border-bottom:1px solid rgba(0,0,0,.18);
 }
 
 .count-title{
@@ -87,27 +91,12 @@ html,body{
     font-weight:bold;
 }
 
-/* ALT BİLGİ KARTI */
 .info-card{
-    position:absolute;
-    left:50%;
-    bottom:18px;
-    transform:translateX(-50%);
-    z-index:50;
-
-    width:70%;
     height:120px;
 
     display:grid;
     grid-template-columns:1fr 1px 1fr 1px 1fr;
     align-items:center;
-
-    background:rgba(255,255,255,.28);
-    backdrop-filter:blur(10px);
-    -webkit-backdrop-filter:blur(10px);
-
-    border:1px solid rgba(255,255,255,.25);
-    border-radius:4px;
 }
 
 .info-item{
@@ -156,10 +145,13 @@ html,body{
         max-height:100vh;
     }
 
-    .countdown{
+    .info-panel{
         width:72%;
-        bottom:124px;
-        padding:7px 5px;
+        bottom:18px;
+    }
+
+    .countdown{
+        padding:7px 5px 6px;
     }
 
     .count-title{
@@ -171,9 +163,7 @@ html,body{
     }
 
     .info-card{
-        width:72%;
         height:100px;
-        bottom:18px;
     }
 
     .info-item svg{
@@ -213,38 +203,42 @@ html,body{
             <source src="nisan.mp4" type="video/mp4">
         </video>
 
-        <div class="countdown">
-            <div class="count-title">NİŞANIMIZA KALAN SÜRE</div>
-            <div id="timer">Yükleniyor...</div>
-        </div>
+        <div class="info-panel">
 
-        <div class="info-card">
-
-            <div class="info-item">
-                <i data-lucide="calendar-days"></i>
-                <div class="title">TARİH</div>
-                <div class="value">3 Temmuz 2026</div>
-                <div class="value">Cuma</div>
+            <div class="countdown">
+                <div class="count-title">NİŞANIMIZA KALAN SÜRE</div>
+                <div id="timer">Yükleniyor...</div>
             </div>
 
-            <div class="divider"></div>
+            <div class="info-card">
 
-            <div class="info-item">
-                <i data-lucide="clock-3"></i>
-                <div class="title">SAAT</div>
-                <div class="value">19:30</div>
-            </div>
-
-            <div class="divider"></div>
-
-            <a class="location-link" href="https://maps.google.com/?q=Fly+Garden" target="_blank">
                 <div class="info-item">
-                    <i data-lucide="map-pin"></i>
-                    <div class="title">MEKAN</div>
-                    <div class="value">Fly Garden</div>
-                    <div class="value">Yeşilköy</div>
+                    <i data-lucide="calendar-days"></i>
+                    <div class="title">TARİH</div>
+                    <div class="value">3 Temmuz 2026</div>
+                    <div class="value">Cuma</div>
                 </div>
-            </a>
+
+                <div class="divider"></div>
+
+                <div class="info-item">
+                    <i data-lucide="clock-3"></i>
+                    <div class="title">SAAT</div>
+                    <div class="value">19:30</div>
+                </div>
+
+                <div class="divider"></div>
+
+                <a class="location-link" href="https://maps.google.com/?q=Fly+Garden" target="_blank">
+                    <div class="info-item">
+                        <i data-lucide="map-pin"></i>
+                        <div class="title">MEKAN</div>
+                        <div class="value">Fly Garden</div>
+                        <div class="value">Yeşilköy</div>
+                    </div>
+                </a>
+
+            </div>
 
         </div>
 
