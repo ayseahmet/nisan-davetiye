@@ -3,133 +3,61 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Ayşe & Ahmet Nişan Davetiyesi</title>
+<title>Nişan Davetiyesi</title>
 
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background: #eee9df;
+    overflow: hidden;
 }
 
-html,body{
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    background:#f5f2eb;
-    font-family:Georgia, serif;
+.bg {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
 }
 
-/* Bulanık arka plan */
-.bg-video{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    z-index:1;
+.bg video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(35px) brightness(0.75);
+    transform: scale(1.2);
 }
 
-.bg-video video{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    filter:blur(35px) brightness(0.7);
-    transform:scale(1.2);
+.main {
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.bg-video::after{
-    content:'';
-    position:absolute;
-    inset:0;
-    background:rgba(248,245,239,0.15);
+.main video {
+    height: 100vh;
+    width: auto;
+    max-width: 100vw;
+    object-fit: contain;
 }
-
-/* Ana video */
-.main-video{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    z-index:2;
-}
-
-.main-video video{
-    height:100vh;
-    width:auto;
-    max-width:100%;
-    object-fit:contain;
-    box-shadow:
-        0 0 30px rgba(0,0,0,.15),
-        0 0 120px rgba(0,0,0,.10);
-}
-
-/* Alt bilgi */
-.info{
-    position:fixed;
-    bottom:25px;
-    left:50%;
-    transform:translateX(-50%);
-    z-index:3;
-
-    background:rgba(255,255,255,.15);
-    backdrop-filter:blur(12px);
-
-    padding:12px 24px;
-    border-radius:40px;
-
-    color:white;
-    font-size:14px;
-    letter-spacing:1px;
-
-    box-shadow:0 5px 20px rgba(0,0,0,.15);
-}
-
-/* Mobil */
-@media (max-width:768px){
-
-.main-video video{
-    width:100%;
-    height:auto;
-    max-height:100vh;
-}
-
-.info{
-    font-size:12px;
-    padding:10px 20px;
-}
-
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- Bulanık arka plan videosu -->
-<div class="bg-video">
+<div class="bg">
     <video autoplay muted loop playsinline>
-        <source src="Nişan%20Davetiye%20SoOn!!!.mp4" type="video/mp4">
+        <source src="nisan.mp4" type="video/mp4">
     </video>
 </div>
 
-<!-- Ana video -->
-<div class="main-video">
-    <video autoplay muted loop playsinline>
-        <source src="Nişan%20Davetiye%20SoOn!!!.mp4" type="video/mp4">
+<div class="main">
+    <video autoplay muted loop playsinline controls>
+        <source src="nisan.mp4" type="video/mp4">
     </video>
-</div>
-
-<!-- Alt yazı -->
-<div class="info">
-    Ayşe & Ahmet • Nişan Davetiyesi
 </div>
 
 </body>
