@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nişan Davetiyesi</title>
+
+<style>
+body{
+margin:0;
+padding:0;
+background:#f8f5ef;
+font-family:Georgia, serif;
+text-align:center;
+color:#4a4a4a;
+}
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:linear-gradient(rgba(255,255,255,.4),rgba(255,255,255,.4)),
+url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop');
+background-size:cover;
+background-position:center;
+}
+
+h1{
+font-size:4rem;
+margin:0;
+}
+
+h2{
+font-size:1.5rem;
+font-weight:normal;
+}
+
+.btn{
+display:inline-block;
+margin-top:30px;
+padding:15px 35px;
+background:#6b7d4f;
+color:white;
+text-decoration:none;
+border-radius:30px;
+}
+
+.section{
+padding:60px 20px;
+}
+
+.countdown{
+font-size:2rem;
+font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+<h1>Ayşe & Ahmet</h1>
+<h2>Nişan Davetimize Hoş Geldiniz</h2>
+<a class="btn" href="#detay">Detaylar</a>
+</section>
+
+<section class="section" id="detay">
+<h2>12 Temmuz 2026</h2>
+<p>Saat: 19:00</p>
+<p>Zeytin Bahçesi Davet</p>
+
+<div class="countdown" id="countdown"></div>
+
+<br><br>
+
+<a class="btn"
+href="https://maps.google.com"
+target="_blank">
+Konuma Git
+</a>
+</section>
+
+<script>
+const targetDate = new Date("2026-07-12T19:00:00");
+
+function updateCountdown(){
+const now = new Date();
+const diff = targetDate - now;
+
+const days = Math.floor(diff/(1000*60*60*24));
+const hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+const minutes = Math.floor((diff%(1000*60*60))/(1000*60));
+
+document.getElementById("countdown").innerHTML =
+days + " Gün " + hours + " Saat " + minutes + " Dakika";
+}
+
+setInterval(updateCountdown,1000);
+updateCountdown();
+</script>
+
+</body>
+</html>
