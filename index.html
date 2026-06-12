@@ -8,6 +8,7 @@
 <title>Nişan Davetiyesi</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -33,15 +34,16 @@ html,body{
     width:100%;
     height:100%;
     object-fit:cover;
-    filter:blur(35px) brightness(0.75);
+    filter:blur(35px) brightness(.75);
     transform:scale(1.2);
 }
 
-/* Ana video */
+/* Ana video alanı */
 .main-video{
     position:fixed;
     inset:0;
     z-index:2;
+
     display:flex;
     justify-content:center;
     align-items:center;
@@ -56,44 +58,57 @@ html,body{
 
 /* Konum butonu */
 .location-btn{
-    position:fixed;
-    bottom:25px;
-    right:25px;
+    position:absolute;
+    bottom:35px;
+    right:35px;
     z-index:10;
 }
 
 .location-btn a{
-    display:inline-block;
     text-decoration:none;
-    background:rgba(93,115,78,0.95);
+    background:rgba(93,115,78,.92);
     color:white;
-    padding:14px 24px;
+
+    padding:12px 22px;
+
     border-radius:40px;
-    font-family:Arial, sans-serif;
-    font-size:15px;
-    font-weight:bold;
-    box-shadow:0 8px 25px rgba(0,0,0,0.25);
+
+    font-family:Arial,sans-serif;
+    font-size:14px;
+    font-weight:600;
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:0 6px 20px rgba(0,0,0,.25);
 }
 
 /* Mobil */
 @media(max-width:768px){
+
+    .main-video video{
+        width:100%;
+        height:auto;
+        max-height:100vh;
+    }
+
     .location-btn{
-        bottom:18px;
-        right:18px;
+        bottom:20px;
+        right:20px;
     }
 
     .location-btn a{
-        font-size:14px;
-        padding:12px 20px;
+        font-size:13px;
+        padding:10px 18px;
     }
 }
+
 </style>
 
 </head>
 
 <body>
 
-<!-- Arka plandaki bulanık video -->
+<!-- Bulanık arka plan -->
 
 <div class="bg-video">
     <video autoplay muted loop playsinline>
@@ -101,20 +116,22 @@ html,body{
     </video>
 </div>
 
-<!-- Ana davetiye videosu -->
+<!-- Ana video -->
 
 <div class="main-video">
-    <video autoplay muted loop playsinline controls>
-        <source src="nisan.mp4" type="video/mp4">
-    </video>
-</div>
 
-<!-- Konum butonu -->
+```
+<video autoplay muted loop playsinline>
+    <source src="nisan.mp4" type="video/mp4">
+</video>
 
 <div class="location-btn">
     <a href="https://maps.google.com/?q=Fly+Garden" target="_blank">
-        📍 Konuma Git
+        📍 Fly Garden
     </a>
+</div>
+```
+
 </div>
 
 </body>
