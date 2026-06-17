@@ -8,7 +8,11 @@
 <script src="https://unpkg.com/lucide@latest"></script>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
 html,body{
     width:100%;
@@ -191,7 +195,7 @@ html,body{
 
 <div class="bg-video">
     <video autoplay muted loop playsinline>
-        <source src="./nisann.mp4?v=2000" type="video/mp4">
+        <source src="./nisann.mp4?v=3000" type="video/mp4">
     </video>
 </div>
 
@@ -199,7 +203,7 @@ html,body{
     <div class="video-wrap">
 
         <video autoplay muted loop playsinline>
-           <source src="./nisann.mp4?v=2000" type="video/mp4">
+            <source src="./nisann.mp4?v=3000" type="video/mp4">
         </video>
 
         <div class="info-panel">
@@ -230,7 +234,8 @@ html,body{
 
                 <a class="location-link"
                    href="https://www.google.com/maps/place/Fly+Garden+Event+-+Ye%C5%9Filk%C3%B6y+K%C4%B1r+D%C3%BC%C4%9F%C3%BCn%C3%BC+%26+Florya+A%C3%A7%C4%B1k+Hava+D%C3%BC%C4%9F%C3%BCn+Salonu+%26+Bak%C4%B1rk%C3%B6y+A%C3%A7%C4%B1k+Hava+Ni%C5%9Fan+Mekanlar%C4%B1/@41.0229882,28.880494,12.75z/data=!4m6!3m5!1s0x14caa591c09dada3:0x13baed8cee10f099!8m2!3d40.9845215!4d28.834748!16s%2Fg%2F11l6qffdq5?entry=ttu&g_ep=EgoyMDI2MDYxMC4wIKXMDSoASAFQAw%3D%3D"
-                   target="_blank">
+                   target="_blank"
+                   rel="noopener noreferrer">
                     <div class="info-item">
                         <i data-lucide="map-pin"></i>
                         <div class="title">MEKAN</div>
@@ -247,7 +252,9 @@ html,body{
 </div>
 
 <script>
-lucide.createIcons();
+if (window.lucide) {
+    lucide.createIcons();
+}
 
 const targetDate = new Date("2026-07-03T19:00:00").getTime();
 
